@@ -10,6 +10,7 @@ class CreateFormTable(Migration):
     with self.schema.create("form") as table:
       table.increments("id")
       table.string("name")
+      table.string("link")
       
   def down(self):
     '''
