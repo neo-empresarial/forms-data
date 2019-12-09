@@ -18,7 +18,7 @@ else:
     DB_PASSWORD = os.getenv("DB_PASSWORD")
 
     DATABASES = {
-        "production": {
+        "development": {
             "driver": "postgres",
             "host": DB_HOSTNAME,
             "database": DB_NAME,
