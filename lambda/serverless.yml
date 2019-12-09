@@ -1,0 +1,23 @@
+service: neo-data
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: us-east-1
+  timeout: 180
+  environment:
+    DB_HOSTNAME: ${env:DB_HOSTNAME}
+    DB_NAME:  ${env:DB_NAME}
+    DB_USERNAME:  ${env:DB_USERNAME}
+    DB_PASSWORD:  ${env:DB_PASSWORD}
+    DB_PORT:  ${env:DB_PORT}
+    DB_URI: ${env:DB_URI}
+    ENVIRONMENT:  ${env:ENVIRONMENT}
+
+functions:
+  process-form:
+    handler: handler.process_form
+    events:
+      - http:
+          path: /
+          method: get
